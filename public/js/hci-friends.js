@@ -10,6 +10,19 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+	$("a.name").click(nameClick);
+}
+
+function nameClick(e) {
+	console.log("projectClick is working!");
+  // Cancel the default action, which prevents the page from reloading
+    e.preventDefault();
+
+    // In an event listener, $(this) is the leement that fired the event
+    var nameTitle = $(this).find("h3").text();
+    console.log(nameTitle);
+    var changeTitle = anagrammedName(nameTitle);
+    $(this).find("h3").text(changeTitle);
 }
 
 function anagrammedName(name) {
